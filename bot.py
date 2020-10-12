@@ -12,7 +12,7 @@ def get_prefix(client, message):
     with open('prefixes.json', 'r') as f:
         data = json.load(f)
     if not str(message.channel.id) in data:
-        return commands.when_mentioned_or('p!')(client, message)
+        return commands.when_mentioned_or('p!', 'P!')(client, message)
     return commands.when_mentioned_or(data[str(message.guild.id)])(client, message)
 
 client: Bot = commands.Bot(command_prefix = get_prefix, case_insensitive=True, owner_id=393480172638044160)
